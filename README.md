@@ -1,4 +1,4 @@
-# My Website
+# Prop Firm
 
 This project is a comprehensive web application that integrates frontend, backend, database management, blockchain technology, API integration, security measures, hosting services, and compliance tools.
 
