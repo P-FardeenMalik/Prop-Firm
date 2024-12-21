@@ -11,6 +11,12 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Validation check
+    if (!name || !email || !message) {
+      setStatus('Please fill in all fields.');
+      return;
+    }
+
     const templateParams = {
       name,
       email,
@@ -33,7 +39,7 @@ const Contact = () => {
 
   return (
     <div className="contact-container">
-      <h1>Contact</h1>
+      <h1>Contact Us</h1>
       <p>Get in touch with us!</p>
       <form className="contact-form" onSubmit={handleSubmit}>
         <input
