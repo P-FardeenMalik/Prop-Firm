@@ -70,7 +70,7 @@ const Home = () => {
         <div className="steps">
           <div className="step">
             <h3>1. Apply for our program</h3>
-            <p>Select your preferred account size and easily connect your exchange account to HyroTrader via API.</p>
+            <p>Select your preferred account size and easily connect your exchange account to RoseXtrader via API.</p>
           </div>
           <div className="step">
             <h3>2. Complete the Crypto Trading Challenge</h3>
@@ -86,7 +86,7 @@ const Home = () => {
           </div>
           <div className="step">
             <h3>Your First Payout</h3>
-            <p>HyroTrader offers the fastest payouts in the industry. You can request a payout after 1 calendar day from the first trade executed on the funded account. Payouts are processed within 12-24 hours and paid in USDT.</p>
+            <p>RoseXtrader offers the fastest payouts in the industry. You can request a payout after 1 calendar day from the first trade executed on the funded account. Payouts are processed within 12-24 hours and paid in USDT.</p>
           </div>
         </div>
       </section>
