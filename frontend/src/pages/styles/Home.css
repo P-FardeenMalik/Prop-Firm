@@ -10,29 +10,41 @@
     justify-content: space-between;
     align-items: center;
     padding: 50px 20px;
-    background-color: #1a1a1a;
+    background-color: #000000;
     border-radius: 10px;
     margin-bottom: 30px;
   }
   
   .hero-content {
     flex: 1;
+    max-width: 50%;
   }
   
   .hero-logos {
     display: flex;
-    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
-    gap: 20px;
+    flex: 1;
+    max-width: 50%;
   }
   
-  .hero-logos img {
+  .hero-logos .logo {
     width: 100px;
     height: auto;
   }
   
+  .hero-logos .binance-logo {
+    position: relative;
+    top: -10px; /* Move Binance logo slightly upwards */
+  }
+  
   .hero h1 {
     font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero h2 {
+    font-size: 2rem;
     margin-bottom: 20px;
   }
   
@@ -53,6 +65,44 @@
   
   .cta-btn:hover {
     background-color: #0d8cd2; /* Darker blue on hover */
+  }
+  
+  .discord-link {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .discord-logo {
+    width: 30px;
+    height: auto;
+    margin-right: 10px;
+  }
+  
+  .discord-link a {
+    color: #1da1f2; /* Twitter-like blue color */
+    text-decoration: none;
+    font-size: 1rem;
+  }
+  
+  .discord-link a:hover {
+    color: #0d8cd2; /* Darker blue on hover */
+  }
+  
+  .trustpilot-widgets {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .trustpilot-widget {
+    text-align: center;
+  }
+  
+  .trustpilot-logo {
+    width: 100px;
+    height: auto;
   }
   
   .features {
