@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './styles/Home.css'; // Import the CSS file for styling
-import binanceLogo from './assets/binance.png'; // Import Binance logo
-import bybitLogo from './assets/bybit.png'; // Import Bybit logo
-import mexcLogo from './assets/mexc.png'; // Import MEXC logo
+import logos from './assets/logos.png'; // Import the combined logos image
 import discordLogo from './assets/discord.png'; // Import Discord logo
 import trustpilotLogo from './assets/trustpilot.png'; // Import Trustpilot logo
 import { getTrustpilotReviews } from '../services/trustpilotService'; // Import the Trustpilot service
@@ -46,9 +44,7 @@ const Home = () => {
           )}
         </div>
         <div className="hero-logos">
-          <img src={bybitLogo} alt="Bybit" className="logo" />
-          <img src={binanceLogo} alt="Binance" className="logo binance-logo" />
-          <img src={mexcLogo} alt="MEXC" className="logo" />
+          <img src={logos} alt="Exchanges" className="logos" />
         </div>
       </section>
       <section className="features">
@@ -65,6 +61,32 @@ const Home = () => {
           <div className="feature-item">
             <h3>24/7 Support</h3>
             <p>Get support anytime with our 24/7 customer service.</p>
+          </div>
+        </div>
+      </section>
+      <section className="how-it-works">
+        <h2>How it works</h2>
+        <p>To access a funded trading account, complete a trading challenge. The fee for this challenge is fully refundable with the first profit split. Read more about how it works here.</p>
+        <div className="steps">
+          <div className="step">
+            <h3>1. Apply for our program</h3>
+            <p>Select your preferred account size and easily connect your exchange account to HyroTrader via API.</p>
+          </div>
+          <div className="step">
+            <h3>2. Complete the Crypto Trading Challenge</h3>
+            <p>Stick to the trading rules and demonstrate that you can consistently be a profitable trader. Your primary goal is to achieve a total profit target of 15% across two phases with no time limit.</p>
+          </div>
+          <div className="step">
+            <h3>3. Performance & KYC Check</h3>
+            <p>We'll review your results and check your identity (KYC) to start our collaboration. After that, we'll offer you a contract with our Crypto Prop Trading Firm.</p>
+          </div>
+          <div className="step">
+            <h3>4. Get Your Crypto Trading Account</h3>
+            <p>We offer every trader the opportunity for a profit split ranging from 70% to 90%. Start at 70% and scale up by 5% every 4 months.</p>
+          </div>
+          <div className="step">
+            <h3>Your First Payout</h3>
+            <p>HyroTrader offers the fastest payouts in the industry. You can request a payout after 1 calendar day from the first trade executed on the funded account. Payouts are processed within 12-24 hours and paid in USDT.</p>
           </div>
         </div>
       </section>

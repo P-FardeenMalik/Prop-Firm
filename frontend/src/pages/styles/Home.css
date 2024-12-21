@@ -1,152 +1,177 @@
 .home {
-    font-family: 'Roboto', sans-serif;
-    color: #ffffff;
-    background-color: #000000; /* Dark black background */
-    padding: 20px;
-  }
-  
-  .hero {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 50px 20px;
-    background-color: #000000;
-    border-radius: 10px;
-    margin-bottom: 30px;
-  }
-  
-  .hero-content {
-    flex: 1;
-    max-width: 50%;
-  }
-  
-  .hero-logos {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex: 1;
-    max-width: 50%;
-  }
-  
-  .hero-logos .logo {
-    width: 100px;
-    height: auto;
-  }
-  
-  .hero-logos .binance-logo {
-    position: relative;
-    top: -10px; /* Move Binance logo slightly upwards */
-  }
-  
-  .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-  }
-  
-  .hero h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
-  
-  .hero p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-  }
-  
-  .cta-btn {
-    background-color: #1da1f2; /* Twitter-like blue color */
-    color: #ffffff;
-    border: none;
-    padding: 15px 30px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 1rem;
-  }
-  
-  .cta-btn:hover {
-    background-color: #0d8cd2; /* Darker blue on hover */
-  }
-  
-  .discord-link {
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
-  }
-  
-  .discord-logo {
-    width: 30px;
-    height: auto;
-    margin-right: 10px;
-  }
-  
-  .discord-link a {
-    color: #1da1f2; /* Twitter-like blue color */
-    text-decoration: none;
-    font-size: 1rem;
-  }
-  
-  .discord-link a:hover {
-    color: #0d8cd2; /* Darker blue on hover */
-  }
-  
-  .trustpilot-widgets {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 20px;
-  }
-  
-  .trustpilot-widget {
-    text-align: center;
-  }
-  
-  .trustpilot-logo {
-    width: 100px;
-    height: auto;
-  }
-  
-  .features {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  
-  .features h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-  }
-  
-  .feature-list {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-  }
-  
-  .feature-item {
-    background-color: #1a1a1a;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 10px;
-    width: 30%;
-    min-width: 250px;
-  }
-  
-  .feature-item h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-  }
-  
-  .feature-item p {
-    font-size: 1rem;
-  }
-  
-  .cta {
-    text-align: center;
-    padding: 50px 20px;
-    background-color: #1a1a1a;
-    border-radius: 10px;
-  }
-  
-  .cta h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #000000; /* Set background color to black */
+  color: #ffffff; /* Set text color to white */
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 40px;
+  padding-left: 0px; /* Adjust padding to align with header */
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 55%; /* Adjust width to move text slightly to the left */
+  padding-right: 20px; /* Add padding to the right for spacing */
+}
+
+.hero-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%; /* Adjust width to make space for larger logos */
+}
+
+.hero-content h1,
+.hero-content h2,
+.hero-content p {
+  text-align: left;
+}
+
+.hero-content h1 {
+  font-size: 3rem; /* Increase font size for the main heading */
+  margin-bottom: 20px;
+}
+
+.hero-content h2 {
+  font-size: 2rem; /* Increase font size for the subheading */
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.2rem; /* Increase font size for the paragraph */
+  line-height: 1.6; /* Improve line spacing */
+}
+
+.hero-logos .logos {
+  max-width: 80%; /* Increase the size of the logos */
+  height: auto;
+}
+
+.discord-link {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.discord-logo {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.trustpilot-widgets {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.trustpilot-widget {
+  text-align: center;
+}
+
+.trustpilot-logo {
+  width: 100px;
+  height: auto;
+}
+
+.features {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.feature-list {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.feature-item {
+  max-width: 200px;
+}
+
+.feature-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.feature-item p {
+  font-size: 1rem;
+}
+
+.how-it-works {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.how-it-works h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.how-it-works p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.step {
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.step h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.step p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.cta {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #1a1a1a;
+  border-radius: 10px;
+}
+
+.cta h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.cta-btn {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  color: #ffffff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cta-btn:hover {
+  background-color: #0056b3;
+}
