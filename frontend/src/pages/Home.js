@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './styles/Home.css'; // Import the CSS file for styling
 import logos from './assets/logos.png'; // Import the combined logos image
 import discordLogo from './assets/discord.png'; // Import Discord logo
@@ -7,6 +8,7 @@ import { getTrustpilotReviews } from '../services/trustpilotService'; // Import 
 
 const Home = () => {
   const [trustpilotData, setTrustpilotData] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchTrustpilotData = async () => {
@@ -16,6 +18,10 @@ const Home = () => {
 
     fetchTrustpilotData();
   }, []);
+
+  const handleSignUpClick = () => {
+    navigate('/sign-up');
+  };
 
   return (
     <div className="home">
@@ -67,7 +73,7 @@ const Home = () => {
       <section className="how-it-works">
         <h2>How it works</h2>
         <p>To access a funded trading account, complete a trading challenge. The fee for this challenge is fully refundable with the first profit split. Read more about how it works here.</p>
-        {/* <div className="steps"> */}
+        <div className="steps">
           <div className="step">
             <h3>1. Apply for our program</h3>
             <p>Select your preferred account size and easily connect your exchange account to RoseXtrader via API.</p>
@@ -88,11 +94,11 @@ const Home = () => {
             <h3>Your First Payout</h3>
             <p>RoseXtrader offers the fastest payouts in the industry. You can request a payout after 1 calendar day from the first trade executed on the funded account. Payouts are processed within 12-24 hours and paid in USDT.</p>
           </div>
-        {/* </div> */}
+        </div>
       </section>
       <section className="cta">
         <h2>Join RoseXtrader Today</h2>
-        <button className="cta-btn">Sign Up Now</button>
+        <button className="cta-btn" onClick={handleSignUpClick}>Sign Up Now</button>
       </section>
     </div>
   );

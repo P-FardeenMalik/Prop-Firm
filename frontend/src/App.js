@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Dashboard from './components/Dashboard';
+import SignUp from './pages/SignUp'; // Import the Sign-Up component
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/sign-up" element={<SignUp />} /> {/* Add the Sign-Up route */}
         </Routes>
       </main>
       <Footer />
