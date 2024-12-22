@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { jwtDecode } from 'jwt-decode'; // Import jwtDecode as a named export
+import { jwtDecode } from 'jwt-decode'; // Correctly import jwtDecode as a named export
 import './styles/SignUp.css'; // Import the CSS file for styling
-import { sendVerificationEmail, verifyOtp, createAccount } from '../services/authService'; // Import the mock backend service
+import { sendVerificationEmail, verifyOtp, createAccount, checkEmail } from '../services/authService'; // Import the mock backend service
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
@@ -11,15 +11,30 @@ const SignUp = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [isEmailVerified, setIsEmailVerified] = useState(false);
   const [otpSent, setOtpSent] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
+
+  const handleGoogleSignIn = useCallback(async (response) => {
+    const userObject = jwtDecode(response.credential);
+    const googleEmail = userObject.email;
+    setEmail(googleEmail);
+
+    // Directly create an account with Google email
+    const accountResponse = await createAccount(googleEmail, 'google-oauth');
+    console.log('Google sign-up response:', accountResponse); // Log the response
+    if (accountResponse.success) {
+      alert('Account created successfully');
+      navigate('/dashboard');
+    } else {
+      setErrorMessage(accountResponse.message || 'Failed to create account');
+    }
+  }, [navigate]);
 
   useEffect(() => {
     const initializeGoogleSignIn = () => {
       /* global google */
       google.accounts.id.initialize({
-        client_id: '455880184038-072n72giealrqsbo879tos8964q2bf8q.apps.googleusercontent.com', // Replace with your actual Google client ID
+        client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID, // Use environment variable
         callback: handleGoogleSignIn,
       });
       google.accounts.id.renderButton(
@@ -37,39 +52,36 @@ const SignUp = () => {
     return () => {
       window.removeEventListener('load', initializeGoogleSignIn);
     };
-  }, []);
+  }, [handleGoogleSignIn]); // Add handleGoogleSignIn to the dependency array
+
+  const handleEmailBlur = async () => {
+    const response = await checkEmail(email);
+    if (response.exists) {
+      setErrorMessage('User already exists');
+    } else {
+      setErrorMessage('');
+    }
+  };
 
   const handleEmailVerification = async () => {
     const response = await sendVerificationEmail(email);
+    console.log('Email verification response:', response); // Log the response
     if (response.success) {
       setOtpSent(true);
       alert('OTP sent to your email');
     } else {
-      alert('Failed to send OTP');
+      setErrorMessage(response.message || 'Failed to send OTP');
     }
   };
 
   const handleOtpVerification = async () => {
     const isValid = await verifyOtp(email, otp);
+    console.log('OTP verification response:', isValid); // Log the response
     if (isValid) {
       setIsEmailVerified(true);
       alert('Email verified successfully');
     } else {
       alert('Invalid OTP');
-    }
-  };
-
-  const handleGoogleSignIn = async (response) => {
-    const userObject = jwtDecode(response.credential);
-    const googleEmail = userObject.email;
-    setEmail(googleEmail);
-    // Send OTP to the Google email
-    const emailResponse = await sendVerificationEmail(googleEmail);
-    if (emailResponse.success) {
-      setOtpSent(true);
-      alert('OTP sent to your Google account');
-    } else {
-      alert('Failed to send OTP');
     }
   };
 
@@ -80,17 +92,19 @@ const SignUp = () => {
     }
 
     const response = await createAccount(email, password);
+    console.log('Sign-up response:', response); // Log the response
     if (response.success) {
       alert('Account created successfully');
       navigate('/dashboard');
     } else {
-      alert('Failed to create account');
+      setErrorMessage(response.message || 'Failed to create account');
     }
   };
 
   return (
     <div className="sign-up">
       <h2>Sign Up</h2>
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
       <div className="form-group">
         <label>Email</label>
         <div className="email-verification">
@@ -98,6 +112,7 @@ const SignUp = () => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            onBlur={handleEmailBlur}
             placeholder="Enter your email"
           />
           <button onClick={handleEmailVerification}>Verify</button>
@@ -121,37 +136,21 @@ const SignUp = () => {
         <>
           <div className="form-group">
             <label>Password</label>
-            <div className="password-verification">
-              <input
-                type={showPassword ? "text" : "password"}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Enter your password"
-              />
-              <button
-                type="button"
-                onClick={() => setShowPassword(!showPassword)}
-              >
-                {showPassword ? "Hide" : "Show"}
-              </button>
-            </div>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter your password"
+            />
           </div>
           <div className="form-group">
             <label>Confirm Password</label>
-            <div className="password-verification">
-              <input
-                type={showConfirmPassword ? "text" : "password"}
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                placeholder="Confirm your password"
-              />
-              <button
-                type="button"
-                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-              >
-                {showConfirmPassword ? "Hide" : "Show"}
-              </button>
-            </div>
+            <input
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              placeholder="Confirm your password"
+            />
           </div>
           <div className="sign-up-btn">
             <button onClick={handleSignUp}>Sign Up</button>

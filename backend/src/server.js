@@ -1,50 +1,25 @@
 const express = require('express');
-const nodemailer = require('nodemailer');
 const cors = require('cors');
-
-// Set up Nodemailer transporter
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: 'fardeenmalik138@gmail.com', // Replace with your Gmail address
-    pass: 'rnyi oapz qonr opeq', // Replace with your application-specific password
-  },
-});
+const bodyParser = require('body-parser');
+require('dotenv').config(); // Load environment variables from .env file
 
 const app = express();
-app.use(express.json());
 app.use(cors());
+app.use(bodyParser.json());
 
-const otpStore = {};
+const users = {}; // In-memory store for user credentials
+const otpStore = {}; // In-memory store for OTPs
 
-app.post('/send-verification-email', async (req, res) => {
+app.post('/send-verification-email', (req, res) => {
   const { email } = req.body;
-
-  try {
-    // Generate a mock OTP
-    const otp = Math.floor(100000 + Math.random() * 900000).toString();
-    console.log(`Sending OTP ${otp} to ${email}`);
-    
-    const mailOptions = {
-      from: 'fardeenmalik138@gmail.com', // Replace with your Gmail address
-      to: email,
-      subject: 'Your OTP Code',
-      text: `Your OTP code is ${otp}`,
-      html: `<strong>Your OTP code is ${otp}</strong>`,
-    };
-
-    // Send the email
-    await transporter.sendMail(mailOptions);
-
-    // Store the OTP in memory for verification (for demonstration purposes)
-    // In a real application, you should use a database
-    otpStore[email] = otp;
-
-    res.status(200).json({ success: true });
-  } catch (error) {
-    console.error('Failed to send verification email:', error);
-    res.status(500).json({ success: false });
+  if (users[email]) {
+    console.log(`User already exists: ${email}`); // Log if user already exists
+    return res.status(400).json({ success: false, message: 'User already exists' });
   }
+  const otp = Math.floor(100000 + Math.random() * 900000).toString();
+  otpStore[email] = otp;
+  console.log(`OTP for ${email}: ${otp}`); // Simulate sending OTP
+  res.status(200).json({ success: true });
 });
 
 app.post('/verify-otp', (req, res) => {
@@ -54,6 +29,47 @@ app.post('/verify-otp', (req, res) => {
     res.status(200).json({ success: true });
   } else {
     res.status(400).json({ success: false });
+  }
+});
+
+app.post('/sign-up', (req, res) => {
+  const { email, password } = req.body;
+  console.log(`Received sign-up request for email: ${email}`); // Log the request
+  if (users[email]) {
+    console.log(`User already exists: ${email}`); // Log if user already exists
+    return res.status(400).json({ success: false, message: 'User already exists' });
+  }
+  users[email] = { password };
+  console.log(`User created: ${email}`); // Log user creation
+  res.status(200).json({ success: true });
+});
+
+app.post('/sign-in', (req, res) => {
+  const { email, password } = req.body;
+  const user = users[email];
+  if (user && user.password === password) {
+    res.status(200).json({ success: true });
+  } else {
+    res.status(400).json({ success: false, message: 'Invalid email or password' });
+  }
+});
+
+app.post('/sign-in-google', (req, res) => {
+  const { email } = req.body;
+  const user = users[email];
+  if (user) {
+    res.status(200).json({ success: true });
+  } else {
+    res.status(400).json({ success: false, message: 'Account not found. Please sign up.' });
+  }
+});
+
+app.post('/check-email', (req, res) => {
+  const { email } = req.body;
+  if (users[email]) {
+    return res.status(200).json({ exists: true });
+  } else {
+    return res.status(200).json({ exists: false });
   }
 });
 

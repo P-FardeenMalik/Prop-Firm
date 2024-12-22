@@ -19,7 +19,9 @@ const Header = () => {
       </nav>
       <div className="auth-buttons">
         <button className="btn">Free Trial</button>
-        <button className="btn">Sign In</button>
+        <Link to="/sign-in">
+          <button className="btn">Sign In</button>
+        </Link>
       </div>
     </header>
   );

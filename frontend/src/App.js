@@ -5,8 +5,9 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
-import Dashboard from './components/Dashboard';
-import SignUp from './pages/SignUp'; // Import the Sign-Up component
+import Dashboard from './components/Dashboard'; // Ensure the correct import path
+import SignUp from './pages/SignUp';
+import SignIn from './pages/SignIn'; // Import the SignIn component
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/sign-up" element={<SignUp />} /> {/* Add the Sign-Up route */}
+          <Route path="/sign-in" element={<SignIn />} /> {/* Add the Sign-In route */}
         </Routes>
       </main>
       <Footer />
