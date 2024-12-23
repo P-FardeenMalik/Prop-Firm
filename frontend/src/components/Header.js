@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext'; // Import useAuth from AuthContext
 import './styles/Header.css'; // Import the CSS file for styling
 
 const Header = () => {
+  const { isAuthenticated } = useAuth(); // Use the authentication state
+
   return (
     <header className="header">
       <div className="logo">
@@ -19,9 +22,15 @@ const Header = () => {
       </nav>
       <div className="auth-buttons">
         <button className="btn">Free Trial</button>
-        <Link to="/sign-in">
-          <button className="btn">Sign In</button>
-        </Link>
+        {isAuthenticated ? (
+          <Link to="/dashboard">
+            <button className="btn">My Account</button>
+          </Link>
+        ) : (
+          <Link to="/sign-in">
+            <button className="btn">Sign In</button>
+          </Link>
+        )}
       </div>
     </header>
   );

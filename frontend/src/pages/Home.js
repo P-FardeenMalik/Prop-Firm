@@ -29,7 +29,8 @@ const Home = () => {
       <section className="hero">
         <div className="hero-content">
           <h1>Crypto Traders Wanted RoseXtrader</h1>
-          <h2>Trade with Crypto Prop Trading Firm</h2>
+          <h2>We Provide Two services</h2>
+          <p>Get refund upto 50% of your trading fees from Binance, Bybit, OKX, Mexc, BingX, Bitget and Lbank Exchanges.</p>
           <p>Trade crypto with an initial capital of up to $100,000 and keep up to 90% of your profits while we cover the losses. Connect your own Binance, ByBit, Mexc account to RoseXtrader, the crypto prop trading firm for serious traders.</p>
           <button className="cta-btn" onClick={handleSignUpClick}>Get Started</button>
           <div className="discord-link">

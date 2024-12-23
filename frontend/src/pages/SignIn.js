@@ -3,12 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import {jwtDecode} from 'jwt-decode'; // Correctly import jwtDecode as a named export
 import './styles/SignIn.css'; // Import the CSS file for styling
 import { signInWithEmail, signInWithGoogle } from '../services/authService'; // Import the mock backend service
+import { useAuth } from '../context/AuthContext'; // Import useAuth from AuthContext
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
+  const { login } = useAuth(); // Use the login function from AuthContext
 
   const handleGoogleSignIn = useCallback(async (response) => {
     const userObject = jwtDecode(response.credential);
@@ -18,11 +20,12 @@ const SignIn = () => {
     const signInResponse = await signInWithGoogle(googleEmail);
     console.log('Google sign-in response:', signInResponse); // Log the response
     if (signInResponse.success) {
+      login(); // Update the authentication state
       navigate('/dashboard');
     } else {
       setErrorMessage('Account not found. Please sign up.');
     }
-  }, [navigate]);
+  }, [navigate, login]);
 
   useEffect(() => {
     const initializeGoogleSignIn = () => {
@@ -52,6 +55,7 @@ const SignIn = () => {
     const response = await signInWithEmail(email, password);
     console.log('Sign-in response:', response); // Log the response
     if (response.success) {
+      login(); // Update the authentication state
       navigate('/dashboard');
     } else {
       setErrorMessage(response.message || 'Invalid email or password');
