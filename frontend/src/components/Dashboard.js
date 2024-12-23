@@ -44,7 +44,7 @@ const Dashboard = () => {
             alt="Profile"
             className="profile-pic"
           />
-          <span>{userProfile.firstName}</span>
+          <span>{userProfile.firstName || 'My Account'}</span>
         </div>
         <Routes>
           <Route path="/" element={<div>Welcome to your FutureXtrader dashboard!</div>} />
