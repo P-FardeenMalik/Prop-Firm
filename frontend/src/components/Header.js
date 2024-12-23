@@ -37,7 +37,7 @@ const Header = () => {
         </ul>
       </nav>
       <div className="auth-buttons">
-        <button className="btn">Free Trial</button>
+        {!isAuthenticated && <button className="btn">Free Trial</button>}
         {isAuthenticated ? (
           <Link to="/dashboard/profile" className="btn-link">
             <img

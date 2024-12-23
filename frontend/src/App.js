@@ -16,7 +16,7 @@ const App = () => {
   return (
     <AuthProvider>
       <Router>
-        <Header />
+        <HeaderWrapper />
         <main>
           <Routes>
             <Route exact path="/" element={<Home />} />
@@ -31,6 +31,16 @@ const App = () => {
       </Router>
     </AuthProvider>
   );
+};
+
+const HeaderWrapper = () => {
+  const location = useLocation();
+  const noHeaderRoutes = ['/dashboard'];
+
+  // Check if the current path starts with any of the noHeaderRoutes
+  const shouldShowHeader = !noHeaderRoutes.some(route => location.pathname.startsWith(route));
+
+  return shouldShowHeader ? <Header /> : null;
 };
 
 const FooterWrapper = () => {

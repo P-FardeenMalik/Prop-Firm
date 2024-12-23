@@ -5,7 +5,7 @@ import MyProfile from './MyProfile'; // Import MyProfile component
 import './styles/Dashboard.css'; // Import the CSS file for styling
 
 const Dashboard = () => {
-  const { logout } = useAuth();
+  const { logout, userProfile } = useAuth();
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -16,6 +16,9 @@ const Dashboard = () => {
   return (
     <div className="dashboard">
       <div className="sidebar">
+        <div className="sidebar-header">
+          <Link to="/" className="company-name">FutureXtrader</Link>
+        </div>
         <ul className="sidebar-menu">
           <li>New Funded Account</li>
           <li>Funded Accounts</li>
@@ -35,6 +38,14 @@ const Dashboard = () => {
         </ul>
       </div>
       <div className="content">
+        <div className="user-info">
+          <img
+            src={userProfile.profilePic ? URL.createObjectURL(userProfile.profilePic) : "/profile.png"}
+            alt="Profile"
+            className="profile-pic"
+          />
+          <span>{userProfile.firstName}</span>
+        </div>
         <Routes>
           <Route path="/" element={<div>Welcome to your FutureXtrader dashboard!</div>} />
           <Route path="profile" element={<MyProfile />} />
