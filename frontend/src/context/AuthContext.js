@@ -4,6 +4,10 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userProfile, setUserProfile] = useState({
+    firstName: '',
+    profilePic: null,
+  });
 
   const login = () => {
     setIsAuthenticated(true);
@@ -11,10 +15,15 @@ export const AuthProvider = ({ children }) => {
 
   const logout = () => {
     setIsAuthenticated(false);
+    setUserProfile({ firstName: '', profilePic: null });
+  };
+
+  const updateProfile = (profile) => {
+    setUserProfile(profile);
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
+    <AuthContext.Provider value={{ isAuthenticated, login, logout, userProfile, updateProfile }}>
       {children}
     </AuthContext.Provider>
   );

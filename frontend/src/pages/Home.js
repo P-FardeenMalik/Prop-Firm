@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
 import './styles/Home.css'; // Import the CSS file for styling
 import logos from './assets/logos.png'; // Import the combined logos image
-import discordLogo from './assets/discord.png'; // Import Discord logo
 import trustpilotLogo from './assets/trustpilot.png'; // Import Trustpilot logo
 import { getTrustpilotReviews } from '../services/trustpilotService'; // Import the Trustpilot service
 
@@ -33,10 +32,7 @@ const Home = () => {
           <p>Get refund upto 50% of your trading fees from Binance, Bybit, OKX, Mexc, BingX, Bitget and Lbank Exchanges.</p>
           <p>Trade crypto with an initial capital of up to $100,000 and keep up to 90% of your profits while we cover the losses. Connect your own Binance, ByBit, Mexc account to FutureXtrader, the crypto prop trading firm for serious traders.</p>
           <button className="cta-btn" onClick={handleSignUpClick}>Get Started</button>
-          <div className="discord-link">
-            <img src={discordLogo} alt="Discord" className="discord-logo" />
-            <a href="https://discord.com" target="_blank" rel="noopener noreferrer">Join our Discord</a>
-          </div>
+  
           {trustpilotData && (
             <div className="trustpilot-widgets">
               <div className="trustpilot-widget">

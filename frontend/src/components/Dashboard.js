@@ -1,6 +1,7 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, Route, Routes, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import MyProfile from './MyProfile'; // Import MyProfile component
 import './styles/Dashboard.css'; // Import the CSS file for styling
 
 const Dashboard = () => {
@@ -17,8 +18,8 @@ const Dashboard = () => {
       <div className="sidebar">
         <ul className="sidebar-menu">
           <li>New Funded Account</li>
-          <li>Free Trial</li>
           <li>Funded Accounts</li>
+          <li>Free Trial</li>
           <li>Cashback</li>
           <li>Community Chat</li>
           <li>Affiliate</li>
@@ -27,13 +28,17 @@ const Dashboard = () => {
           <li>Market Highlights</li>
           <li>Trading Academy</li>
           <li>Billing</li>
-          <li>My Profile</li>
+          <li>
+            <Link to="/dashboard/profile" className="btn-link">My Profile</Link>
+          </li>
           <li onClick={handleLogout}>Logout</li>
         </ul>
       </div>
       <div className="content">
-        <h1>FutureXtrader Dashboard</h1>
-        <p>Welcome to your FutureXtrader dashboard!</p>
+        <Routes>
+          <Route path="/" element={<div>Welcome to your FutureXtrader dashboard!</div>} />
+          <Route path="profile" element={<MyProfile />} />
+        </Routes>
       </div>
     </div>
   );

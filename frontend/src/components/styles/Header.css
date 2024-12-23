@@ -1,49 +1,89 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap'); /* Import a custom font */
-
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #000000; /* Dark black background */
-  padding: 10px 20px;
-  color: #ffffff; /* White text color */
+  padding: 10px 20px; /* Reduced padding */
+  background-color: #000000; /* Changed background color to a dark grey */
+  color: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+  box-sizing: border-box; /* Ensure padding is included in the width */
+}
+
+.header.scrolled {
+  background-color: rgba(0, 0, 0, 0.8); /* Make the header transparent when scrolled */
+}
+
+.logo a {
+  text-decoration: none; /* Remove underline from title */
 }
 
 .logo h1 {
   margin: 0;
-  font-family: 'Roboto', sans-serif; /* Apply the custom font */
-  font-size: 2rem; /* Increase the font size */
-  color: #e0f3ff; /* Twitter-like blue color */
-}
-
-.logo a {
-  text-decoration: none;
-  color: inherit;
+  font-family: 'Arial', sans-serif; /* Changed font family to Arial */
+  font-size: 24px; /* Increased font size */
+  color: #f0f0f0; /* Changed color to a lighter grey */
 }
 
 .nav-links ul {
-  list-style: none;
+  list-style-type: none;
   display: flex;
   gap: 20px;
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 
-.nav-links a {
-  color: #ffffff;
+.nav-links ul li {
+  margin: 0;
+}
+
+.nav-links ul li a {
+  color: #f0f0f0; /* Changed color to a lighter grey */
   text-decoration: none;
+  font-family: 'Arial', sans-serif; /* Changed font family to Arial */
+}
+
+.auth-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0; /* Prevent shrinking */
 }
 
 .auth-buttons .btn {
-  background-color: #1da1f2; /* Twitter-like blue color */
-  color: #ffffff;
-  border: none;
   padding: 10px 20px;
-  margin-left: 10px;
+  background-color: #004080; /* Changed background color to dark blue */
+  color: white;
+  border: none;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 4px;
+  font-family: 'Arial', sans-serif; /* Changed font family to Arial */
 }
 
 .auth-buttons .btn:hover {
-  background-color: #0d8cd2; /* Darker blue on hover */
+  background-color: #003366; /* Darker blue on hover */
+}
+
+.auth-buttons .btn-link {
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+}
+
+.auth-buttons .profile-pic {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: cover; /* Ensure the image covers the entire area */
+}
+
+/* Add margin to the top of the content to prevent overlap with the header */
+.main-content {
+  margin-top: 70px; /* Adjust this value as needed */
 }

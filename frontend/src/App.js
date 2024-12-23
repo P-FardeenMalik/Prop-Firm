@@ -22,7 +22,7 @@ const App = () => {
             <Route exact path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/dashboard" element={<PrivateRoute element={Dashboard} />} />
+            <Route path="/dashboard/*" element={<PrivateRoute element={Dashboard} />} />
             <Route path="/sign-up" element={<SignUp />} /> {/* Add the Sign-Up route */}
             <Route path="/sign-in" element={<SignIn />} /> {/* Add the Sign-In route */}
           </Routes>
@@ -37,7 +37,10 @@ const FooterWrapper = () => {
   const location = useLocation();
   const noFooterRoutes = ['/dashboard'];
 
-  return !noFooterRoutes.includes(location.pathname) ? <Footer /> : null;
+  // Check if the current path starts with any of the noFooterRoutes
+  const shouldShowFooter = !noFooterRoutes.some(route => location.pathname.startsWith(route));
+
+  return shouldShowFooter ? <Footer /> : null;
 };
 
 export default App;

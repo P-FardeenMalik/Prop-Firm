@@ -1,13 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext'; // Import useAuth from AuthContext
 import './styles/Header.css'; // Import the CSS file for styling
 
 const Header = () => {
-  const { isAuthenticated } = useAuth(); // Use the authentication state
+  const { isAuthenticated, userProfile } = useAuth(); // Use the authentication state and user profile
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
-    <header className="header">
+    <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="logo">
         <Link to="/">
           <h1>FutureXtrader</h1>
@@ -23,8 +39,13 @@ const Header = () => {
       <div className="auth-buttons">
         <button className="btn">Free Trial</button>
         {isAuthenticated ? (
-          <Link to="/dashboard">
-            <button className="btn">My Account</button>
+          <Link to="/dashboard/profile" className="btn-link">
+            <img
+              src={userProfile.profilePic ? URL.createObjectURL(userProfile.profilePic) : "/profile.png"}
+              alt="Profile"
+              className="profile-pic"
+            />
+            <span>{userProfile.firstName || 'My Account'}</span>
           </Link>
         ) : (
           <Link to="/sign-in">
