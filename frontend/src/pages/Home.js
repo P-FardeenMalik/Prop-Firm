@@ -28,10 +28,10 @@ const Home = () => {
     <div className="home">
       <section className="hero">
         <div className="hero-content">
-          <h1>Crypto Traders Wanted RoseXtrader</h1>
+          <h1>Crypto Traders Wanted FutureXtrader</h1>
           <h2>We Provide Two services</h2>
           <p>Get refund upto 50% of your trading fees from Binance, Bybit, OKX, Mexc, BingX, Bitget and Lbank Exchanges.</p>
-          <p>Trade crypto with an initial capital of up to $100,000 and keep up to 90% of your profits while we cover the losses. Connect your own Binance, ByBit, Mexc account to RoseXtrader, the crypto prop trading firm for serious traders.</p>
+          <p>Trade crypto with an initial capital of up to $100,000 and keep up to 90% of your profits while we cover the losses. Connect your own Binance, ByBit, Mexc account to FutureXtrader, the crypto prop trading firm for serious traders.</p>
           <button className="cta-btn" onClick={handleSignUpClick}>Get Started</button>
           <div className="discord-link">
             <img src={discordLogo} alt="Discord" className="discord-logo" />
@@ -78,7 +78,7 @@ const Home = () => {
         {/* <div className="steps"> */}
           <div className="step">
             <h3>1. Apply for our program</h3>
-            <p>Select your preferred account size and easily connect your exchange account to RoseXtrader via API.</p>
+            <p>Select your preferred account size and easily connect your exchange account to FutureXtrader via API.</p>
           </div>
           <div className="step">
             <h3>2. Complete the Crypto Trading Challenge</h3>
@@ -94,12 +94,12 @@ const Home = () => {
           </div>
           <div className="step">
             <h3>Your First Payout</h3>
-            <p>RoseXtrader offers the fastest payouts in the industry. You can request a payout after 1 calendar day from the first trade executed on the funded account. Payouts are processed within 12-24 hours and paid in USDT.</p>
+            <p>FutureXtrader offers the fastest payouts in the industry. You can request a payout after 1 calendar day from the first trade executed on the funded account. Payouts are processed within 12-24 hours and paid in USDT.</p>
           </div>
         {/* </div> */}
       </section>
       <section className="cta">
-        <h2>Join RoseXtrader Today</h2>
+        <h2>Join FutureXtrader Today</h2>
         <button className="cta-btn">Sign Up Now</button>
       </section>
     </div>
