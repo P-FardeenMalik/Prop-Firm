@@ -17,8 +17,8 @@ const Dashboard = () => {
       <div className="sidebar">
         <ul className="sidebar-menu">
           <li>New Funded Account</li>
-          <li>Funded Accounts</li>
           <li>Free Trial</li>
+          <li>Funded Accounts</li>
           <li>Cashback</li>
           <li>Community Chat</li>
           <li>Affiliate</li>
@@ -32,8 +32,8 @@ const Dashboard = () => {
         </ul>
       </div>
       <div className="content">
-        <h1>Dashboard</h1>
-        <p>Welcome to your dashboard!</p>
+        <h1>FutureXtrader Dashboard</h1>
+        <p>Welcome to your FutureXtrader dashboard!</p>
       </div>
     </div>
   );
