@@ -1,7 +1,17 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 import './styles/Dashboard.css'; // Import the CSS file for styling
 
 const Dashboard = () => {
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  };
+
   return (
     <div className="dashboard">
       <div className="sidebar">
@@ -18,7 +28,7 @@ const Dashboard = () => {
           <li>Trading Academy</li>
           <li>Billing</li>
           <li>My Profile</li>
-          <li>Logout</li>
+          <li onClick={handleLogout}>Logout</li>
         </ul>
       </div>
       <div className="content">

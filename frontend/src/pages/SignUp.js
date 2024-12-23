@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { jwtDecode } from 'jwt-decode'; // Correctly import jwtDecode as a named export
+import {jwtDecode} from 'jwt-decode'; // Correctly import jwtDecode as a named export
 import './styles/SignUp.css'; // Import the CSS file for styling
 import { sendVerificationEmail, verifyOtp, createAccount, checkEmail } from '../services/authService'; // Import the mock backend service
+import { useAuth } from '../context/AuthContext'; // Import useAuth from AuthContext
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
@@ -13,6 +14,7 @@ const SignUp = () => {
   const [otpSent, setOtpSent] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleGoogleSignIn = useCallback(async (response) => {
     const userObject = jwtDecode(response.credential);
@@ -24,11 +26,12 @@ const SignUp = () => {
     console.log('Google sign-up response:', accountResponse); // Log the response
     if (accountResponse.success) {
       alert('Account created successfully');
+      login(); // Update the authentication state
       navigate('/dashboard');
     } else {
       setErrorMessage(accountResponse.message || 'Failed to create account');
     }
-  }, [navigate]);
+  }, [navigate, login]);
 
   useEffect(() => {
     const initializeGoogleSignIn = () => {
@@ -95,6 +98,7 @@ const SignUp = () => {
     console.log('Sign-up response:', response); // Log the response
     if (response.success) {
       alert('Account created successfully');
+      login(); // Update the authentication state
       navigate('/dashboard');
     } else {
       setErrorMessage(response.message || 'Failed to create account');
