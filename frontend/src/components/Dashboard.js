@@ -14,6 +14,10 @@ const Dashboard = () => {
     navigate('/'); // Navigate to the home page after logging out
   };
 
+  const handleProfileClick = () => {
+    navigate('/dashboard/profile');
+  };
+
   return (
     <div className="dashboard">
       <div className="sidebar">
@@ -40,7 +44,7 @@ const Dashboard = () => {
         </ul>
       </div>
       <div className="content">
-        <div className="user-info">
+        <div className="user-info" onClick={handleProfileClick}>
           <img
             src={userProfile.profilePic ? URL.createObjectURL(userProfile.profilePic) : "/profile.png"}
             alt="Profile"
