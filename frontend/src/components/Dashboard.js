@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, Route, Routes, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import MyProfile from './MyProfile'; // Import MyProfile component
+import Cashback from './Cashback'; // Import Cashback component
 import './styles/Dashboard.css'; // Import the CSS file for styling
 
 const Dashboard = () => {
@@ -10,7 +11,7 @@ const Dashboard = () => {
 
   const handleLogout = () => {
     logout();
-    navigate('/');
+    navigate('/'); // Navigate to the home page after logging out
   };
 
   return (
@@ -22,8 +23,9 @@ const Dashboard = () => {
         <ul className="sidebar-menu">
           <li>New Funded Account</li>
           <li>Funded Accounts</li>
-          <li>Free Trial</li>
-          <li>Cashback</li>
+          <li>
+            <Link to="/dashboard/cashback" className="btn-link">Cashback</Link>
+          </li>
           <li>Community Chat</li>
           <li>Affiliate</li>
           <li>Promotions</li>
@@ -49,6 +51,7 @@ const Dashboard = () => {
         <Routes>
           <Route path="/" element={<div>Welcome to your FutureXtrader dashboard!</div>} />
           <Route path="profile" element={<MyProfile />} />
+          <Route path="cashback" element={<Cashback />} />
         </Routes>
       </div>
     </div>

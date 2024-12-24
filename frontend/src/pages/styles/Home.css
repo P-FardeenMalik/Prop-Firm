@@ -24,7 +24,6 @@
   align-items: flex-start;
   width: 55%; /* Adjust width to move text slightly to the left */
   padding-right: 20px; /* Add padding to the right for spacing */
-
 }
 
 .hero-logos {
@@ -154,6 +153,43 @@
   line-height: 1.6;
 }
 
+.how-it-works-steps {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.how-it-works-steps h3 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.how-it-works-steps p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.step-box {
+  background-color: #1a1a1a; /* Dark gray background */
+  border: 1px solid #333; /* Border color */
+  border-radius: 10px; /* Rounded corners */
+  padding: 15px; /* Reduced padding */
+  margin-bottom: 15px; /* Reduced margin */
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto 15px auto; /* Center the box and reduce bottom margin */
+}
+
+.step-box h4 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.step-box p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
 .cta {
   text-align: center;
   padding: 50px 20px;
@@ -174,6 +210,7 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  align-self: flex-start; /* Align the button to the left */
 }
 
 .cta-btn:hover {
