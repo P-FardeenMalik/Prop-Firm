@@ -69,6 +69,7 @@ const Home = () => {
       </section>
       <section className="how-it-works">
         <h2>How Prop-Firm works</h2>
+        <p>To access a funded trading account, complete a trading challenge. The fee for this challenge is fully refundable with the first profit split. Read more about how it works here.</p>
         <div className="step-box">
           <h4>1. Apply for our program</h4>
           <p>Select your preferred account size and easily connect your exchange account to FutureXtrader via API.</p>
@@ -111,7 +112,7 @@ const Home = () => {
       </section>
       <section className="cta">
         <h2>Join FutureXtrader Today</h2>
-        <button className="cta-btn">Sign Up Now</button>
+        <button className="sign-up-btn">Sign Up Now</button>
       </section>
     </div>
   );

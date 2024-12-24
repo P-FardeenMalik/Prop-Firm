@@ -211,8 +211,26 @@
   border-radius: 4px;
   cursor: pointer;
   align-self: flex-start; /* Align the button to the left */
+  margin-left: 0; /* Ensure the button starts at the very left */
 }
 
 .cta-btn:hover {
+  background-color: #0056b3;
+}
+
+
+.sign-up-btn {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  color: #ffffff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0 auto; /* Center the button */
+  display: block; /* Ensure the button is treated as a block element */
+}
+
+.sign-up-btn:hover {
   background-color: #0056b3;
 }
