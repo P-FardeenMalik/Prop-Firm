@@ -69,6 +69,10 @@ const SignIn = () => {
     navigate('/sign-up');
   };
 
+  const handleForgotPasswordRedirect = () => {
+    navigate('/forgot-password');
+  };
+
   return (
     <div className="sign-in">
       <h2>Sign In</h2>
@@ -93,6 +97,9 @@ const SignIn = () => {
       </div>
       <div className="sign-in-btn">
         <button onClick={handleSignIn}>Sign In</button>
+      </div>
+      <div className='f'>
+        <button onClick={handleForgotPasswordRedirect}>Forgot Password?</button>
       </div>
       <div className="or-text">OR</div>
       <div className="google-sign-in">

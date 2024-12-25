@@ -10,6 +10,7 @@ import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp'; // Import SignUp component
 import Dashboard from './components/Dashboard'; // Corrected import path
 import PrivateRoute from './components/PrivateRoute'; // Import PrivateRoute component
+import ForgotPassword from './pages/ForgotPassword'; // Import ForgotPassword component
 import './App.css'; // Import the CSS file for styling
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
             <Route path="/dashboard/*" element={<PrivateRoute element={Dashboard} />} />
             <Route path="/sign-up" element={<SignUp />} /> {/* Add the Sign-Up route */}
             <Route path="/sign-in" element={<SignIn />} /> {/* Add the Sign-In route */}
+            <Route path="/forgot-password" element={<ForgotPassword />} /> {/* Add the Forgot Password route */}
           </Routes>
         </main>
         <FooterWrapper />

@@ -91,7 +91,7 @@ const Home = () => {
           <p>FutureXtrader offers the fastest payouts in the industry. You can request a payout after 1 calendar day from the first trade executed on the funded account. Payouts are processed within 12-24 hours and paid in USDT.</p>
         </div>
       </section>
-      <section className="how-it-works-steps">
+      <section className="how-it-works">
         <h3>How Cashback works</h3>
         <p>3 easy steps</p>
         <div className="step-box">
