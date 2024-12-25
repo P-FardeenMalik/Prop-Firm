@@ -95,18 +95,15 @@ const Home = () => {
         <h3>How Cashback works</h3>
         <p>3 easy steps</p>
         <div className="step-box">
-          <h4>Step 1</h4>
-          <p>Redeem referral offers</p>
+          <h4>Redeem referral offers</h4>
           <p>Sign up here to create an account, go to Cashback page and Follow the exchange links to create an account and get discounts on trading.</p>
         </div>
         <div className="step-box">
-          <h4>Step 2</h4>
-          <p>Join The Ref</p>
+          <h4>Join The Ref</h4>
           <p>Provide the User ID for each exchange, and a deposit address for us to pay your refunds.</p>
         </div>
         <div className="step-box">
-          <h4>Step 3</h4>
-          <p>Get paid</p>
+          <h4>Get paid</h4>
           <p>On the 1st of each month, we will deposit half of our commissions in USDT to your deposit address.</p>
         </div>
       </section>
