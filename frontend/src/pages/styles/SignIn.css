@@ -85,7 +85,7 @@ body {
   background-color: #0056b3;
 }
 
-button {
+.button {
   background: none;
   border: none;
   color: #007bff;
@@ -95,7 +95,7 @@ button {
   margin: 0; /* Remove margin */
 }
 
-.f{
+.forget-password{
   text-align: center;
   margin-top: 15px;
 }

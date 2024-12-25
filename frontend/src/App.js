@@ -21,6 +21,7 @@ const App = () => {
         <main>
           <Routes>
             <Route exact path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} /> {/* Add the Home route */}
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/dashboard/*" element={<PrivateRoute element={Dashboard} />} />

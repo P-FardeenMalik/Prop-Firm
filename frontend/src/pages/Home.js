@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
+import { useNavigate, useLocation } from 'react-router-dom'; // Import useNavigate and useLocation from react-router-dom
 import './styles/Home.css'; // Import the CSS file for styling
 import logos from './assets/logos.png'; // Import the combined logos image
 import trustpilotLogo from './assets/trustpilot.png'; // Import Trustpilot logo
@@ -8,6 +8,7 @@ import { getTrustpilotReviews } from '../services/trustpilotService'; // Import 
 const Home = () => {
   const [trustpilotData, setTrustpilotData] = useState(null);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const fetchTrustpilotData = async () => {
@@ -17,6 +18,14 @@ const Home = () => {
 
     fetchTrustpilotData();
   }, []);
+
+  useEffect(() => {
+    if (location.hash === '#prop-firm') {
+      document.getElementById('prop-firm').scrollIntoView({ behavior: 'smooth' });
+    } else if (location.hash === '#cashback') {
+      document.getElementById('cashback').scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [location]);
 
   const handleSignUpClick = () => {
     navigate('/sign-up');
@@ -67,7 +76,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="how-it-works">
+      <section id="prop-firm" className="how-it-works">
         <h2>How Prop-Firm works</h2>
         <p>To access a funded trading account, complete a trading challenge. The fee for this challenge is fully refundable with the first profit split. Read more about how it works here.</p>
         <div className="step-box">
@@ -91,7 +100,7 @@ const Home = () => {
           <p>FutureXtrader offers the fastest payouts in the industry. You can request a payout after 1 calendar day from the first trade executed on the funded account. Payouts are processed within 12-24 hours and paid in USDT.</p>
         </div>
       </section>
-      <section className="how-it-works">
+      <section id="cashback" className="how-it-works">
         <h3>How Cashback works</h3>
         <p>3 easy steps</p>
         <div className="step-box">

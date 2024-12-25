@@ -98,7 +98,7 @@ const SignIn = () => {
       <div className="sign-in-btn">
         <button onClick={handleSignIn}>Sign In</button>
       </div>
-      <div className='f'>
+      <div className='forget-password'>
         <button onClick={handleForgotPasswordRedirect}>Forgot Password?</button>
       </div>
       <div className="or-text">OR</div>
