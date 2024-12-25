@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext'; // Import useAuth from AuthContext
 import './styles/Header.css'; // Import the CSS file for styling
 
 const Header = () => {
   const { isAuthenticated, userProfile } = useAuth(); // Use the authentication state and user profile
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,6 +23,14 @@ const Header = () => {
     };
   }, []);
 
+  const handleFreeTrialClick = () => {
+    if (isAuthenticated) {
+      navigate('/dashboard/free-trial');
+    } else {
+      navigate('/sign-in', { state: { from: '/dashboard/free-trial' } });
+    }
+  };
+
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="logo">
@@ -37,7 +46,7 @@ const Header = () => {
         </ul>
       </nav>
       <div className="auth-buttons">
-        {!isAuthenticated && <button className="btn">Free Trial</button>}
+        {!isAuthenticated && <button className="btn" onClick={handleFreeTrialClick}>Free Trial</button>}
         {isAuthenticated ? (
           <Link to="/dashboard/profile" className="btn-link">
             <img
