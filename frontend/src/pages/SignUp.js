@@ -105,65 +105,74 @@ const SignUp = () => {
     }
   };
 
+  const handleLoginRedirect = () => {
+    navigate('/sign-in');
+  };
+
   return (
     <div className="sign-up">
-      <h2>Sign Up</h2>
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
-      <div className="form-group">
-        <label>Email</label>
-        <div className="email-verification">
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            onBlur={handleEmailBlur}
-            placeholder="Enter your email"
-          />
-          <button onClick={handleEmailVerification}>Verify</button>
-        </div>
-      </div>
-      {otpSent && !isEmailVerified && (
+      <div className="sign-up-container">
+        <h2>Sign Up</h2>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
         <div className="form-group">
-          <label>OTP</label>
-          <div className="otp-verification">
+          <label>Email</label>
+          <div className="email-verification">
             <input
-              type="text"
-              value={otp}
-              onChange={(e) => setOtp(e.target.value)}
-              placeholder="Enter OTP"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              onBlur={handleEmailBlur}
+              placeholder="Enter your email"
             />
-            <button onClick={handleOtpVerification}>Verify OTP</button>
+            <button onClick={handleEmailVerification}>Verify</button>
           </div>
         </div>
-      )}
-      {isEmailVerified && (
-        <>
+        {otpSent && !isEmailVerified && (
           <div className="form-group">
-            <label>Password</label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Enter your password"
-            />
+            <label>OTP</label>
+            <div className="otp-verification">
+              <input
+                type="text"
+                value={otp}
+                onChange={(e) => setOtp(e.target.value)}
+                placeholder="Enter OTP"
+              />
+              <button onClick={handleOtpVerification}>Verify OTP</button>
+            </div>
           </div>
-          <div className="form-group">
-            <label>Confirm Password</label>
-            <input
-              type="password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              placeholder="Confirm your password"
-            />
-          </div>
-          <div className="sign-up-btn">
-            <button onClick={handleSignUp}>Sign Up</button>
-          </div>
-        </>
-      )}
-      <div className="or-text">OR</div>
-      <div className="google-sign-up">
-        <div id="google-sign-in-button"></div>
+        )}
+        {isEmailVerified && (
+          <>
+            <div className="form-group">
+              <label>Password</label>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Enter your password"
+              />
+            </div>
+            <div className="form-group">
+              <label>Confirm Password</label>
+              <input
+                type="password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                placeholder="Confirm your password"
+              />
+            </div>
+            <div className="sign-up-btn">
+              <button onClick={handleSignUp}>Sign Up</button>
+            </div>
+          </>
+        )}
+        <div className="or-text">OR</div>
+        <div className="google-sign-up">
+          <div id="google-sign-in-button"></div>
+        </div>
+        <div className="login-prompt">
+          <p>Already have an account? <button onClick={handleLoginRedirect}>Login</button></p>
+        </div>
       </div>
     </div>
   );

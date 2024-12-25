@@ -95,21 +95,21 @@ const Home = () => {
         <h3>How Cashback works</h3>
         <p>3 easy steps</p>
         <div className="step-box">
-          <h4>Redeem referral offers</h4>
+          <h4>1. Redeem referral offers</h4>
           <p>Sign up here to create an account, go to Cashback page and Follow the exchange links to create an account and get discounts on trading.</p>
         </div>
         <div className="step-box">
-          <h4>Join The Ref</h4>
+          <h4>2. Join The Ref</h4>
           <p>Provide the User ID for each exchange, and a deposit address for us to pay your refunds.</p>
         </div>
         <div className="step-box">
-          <h4>Get paid</h4>
+          <h4>3. Get paid</h4>
           <p>On the 1st of each month, we will deposit half of our commissions in USDT to your deposit address.</p>
         </div>
       </section>
       <section className="cta">
         <h2>Join FutureXtrader Today</h2>
-        <button className="sign-up-btn">Sign Up Now</button>
+        <button className="sign-up-btn" onClick={handleSignUpClick}>Sign Up Now</button>
       </section>
     </div>
   );

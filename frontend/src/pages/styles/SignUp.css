@@ -51,7 +51,7 @@ body {
   margin-right: 10px;
 }
 
-.password-verification button {
+.email-verification button, .otp-verification button, .password-verification button {
   padding: 10px;
   font-size: 16px;
   color: #fff;
@@ -62,7 +62,7 @@ body {
   transition: background-color 0.3s ease;
 }
 
-.password-verification button:hover {
+.email-verification button:hover, .otp-verification button:hover, .password-verification button:hover {
   background-color: #0056b3;
 }
 
@@ -98,4 +98,22 @@ body {
 
 .google-sign-up #google-sign-in-button {
   display: inline-block;
+}
+
+.login-prompt {
+  text-align: center;
+  font-size: 16px;
+  color: #fff; /* Set text color to white */
+}
+
+.login-prompt button {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.login-prompt button:hover {
+  color: #0056b3;
 }
