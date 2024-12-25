@@ -3,6 +3,9 @@ import { Link, Route, Routes, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import MyProfile from './MyProfile'; // Import MyProfile component
 import Cashback from './Cashback'; // Import Cashback component
+import Affiliate from './Affiliate'; // Import Affiliate component
+import Payout from './Payout'; // Import Payout component
+import FreeTrial from './FreeTrial'; // Import FreeTrial component
 import './styles/Dashboard.css'; // Import the CSS file for styling
 
 const Dashboard = () => {
@@ -28,12 +31,19 @@ const Dashboard = () => {
           <li>New Funded Account</li>
           <li>Funded Accounts</li>
           <li>
+            <Link to="/dashboard/free-trial" className="btn-link">Free Trial</Link>
+          </li>
+          <li>
             <Link to="/dashboard/cashback" className="btn-link">Cashback</Link>
           </li>
           <li>Community Chat</li>
-          <li>Affiliate</li>
+          <li>
+            <Link to="/dashboard/affiliate" className="btn-link">Affiliate</Link>
+          </li>
           <li>Promotions</li>
-          <li>Payout</li>
+          <li>
+            <Link to="/dashboard/payout" className="btn-link">Payout</Link>
+          </li>
           <li>Market Highlights</li>
           <li>Trading Academy</li>
           <li>Billing</li>
@@ -56,6 +66,9 @@ const Dashboard = () => {
           <Route path="/" element={<div>Welcome to your FutureXtrader dashboard!</div>} />
           <Route path="profile" element={<MyProfile />} />
           <Route path="cashback" element={<Cashback />} />
+          <Route path="affiliate" element={<Affiliate />} />
+          <Route path="payout" element={<Payout />} />
+          <Route path="free-trial" element={<FreeTrial />} />
         </Routes>
       </div>
     </div>
