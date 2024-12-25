@@ -6,6 +6,13 @@ import Cashback from './Cashback'; // Import Cashback component
 import Affiliate from './Affiliate'; // Import Affiliate component
 import Payout from './Payout'; // Import Payout component
 import FreeTrial from './FreeTrial'; // Import FreeTrial component
+import NewFundedAccount from './NewFundedAccount'; // Import NewFundedAccount component
+import FundedAccounts from './FundedAccounts'; // Import FundedAccounts component
+import Promotions from './Promotions'; // Import Promotions component
+import Billing from './Billing'; // Import Billing component
+import CommunityChat from './CommunityChat'; // Import CommunityChat component
+import MarketHighlights from './MarketHighlights'; // Import MarketHighlights component
+import TradingAcademy from './TradingAcademy'; // Import TradingAcademy component
 import './styles/Dashboard.css'; // Import the CSS file for styling
 
 const Dashboard = () => {
@@ -28,25 +35,39 @@ const Dashboard = () => {
           <Link to="/" className="company-name">FutureXtrader</Link>
         </div>
         <ul className="sidebar-menu">
-          <li>New Funded Account</li>
-          <li>Funded Accounts</li>
+          <li>
+            <Link to="/dashboard/new-funded-account" className="btn-link">New Funded Account</Link>
+          </li>
+          <li>
+            <Link to="/dashboard/funded-accounts" className="btn-link">Funded Accounts</Link>
+          </li>
           <li>
             <Link to="/dashboard/free-trial" className="btn-link">Free Trial</Link>
           </li>
           <li>
             <Link to="/dashboard/cashback" className="btn-link">Cashback</Link>
           </li>
-          <li>Community Chat</li>
+          <li>
+            <Link to="/dashboard/promotions" className="btn-link">Promotions</Link>
+          </li>
+          <li>
+            <Link to="/dashboard/community-chat" className="btn-link">Community Chat</Link>
+          </li>
           <li>
             <Link to="/dashboard/affiliate" className="btn-link">Affiliate</Link>
           </li>
-          <li>Promotions</li>
           <li>
             <Link to="/dashboard/payout" className="btn-link">Payout</Link>
           </li>
-          <li>Market Highlights</li>
-          <li>Trading Academy</li>
-          <li>Billing</li>
+          <li>
+            <Link to="/dashboard/market-highlights" className="btn-link">Market Highlights</Link>
+          </li>
+          <li>
+            <Link to="/dashboard/trading-academy" className="btn-link">Trading Academy</Link>
+          </li>
+          <li>
+            <Link to="/dashboard/billing" className="btn-link">Billing</Link>
+          </li>
           <li>
             <Link to="/dashboard/profile" className="btn-link">My Profile</Link>
           </li>
@@ -69,6 +90,13 @@ const Dashboard = () => {
           <Route path="affiliate" element={<Affiliate />} />
           <Route path="payout" element={<Payout />} />
           <Route path="free-trial" element={<FreeTrial />} />
+          <Route path="new-funded-account" element={<NewFundedAccount />} />
+          <Route path="funded-accounts" element={<FundedAccounts />} />
+          <Route path="promotions" element={<Promotions />} />
+          <Route path="billing" element={<Billing />} />
+          <Route path="community-chat" element={<CommunityChat />} />
+          <Route path="market-highlights" element={<MarketHighlights />} />
+          <Route path="trading-academy" element={<TradingAcademy />} />
         </Routes>
       </div>
     </div>

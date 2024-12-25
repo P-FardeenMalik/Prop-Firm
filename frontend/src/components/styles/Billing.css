@@ -1,0 +1,36 @@
+.billing {
+    padding: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .billing-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .billing-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .billing-item p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .status-failed {
+    color: red;
+  }
+  
+  .status-pending {
+    color: orange;
+  }
