@@ -74,9 +74,9 @@ const NewFundedAccount = () => {
       </div>
       <div className="summary">
         <h3>Summary</h3>
-        <p>{challengePrice}</p>
-        <p>{challengeType.toLowerCase()}</p>
-        <p>{tradingCapital}</p>
+        <p>Challenge Price: {challengePrice}</p>
+        <p>Challenge Type: {challengeType}</p>
+        <p>Trading Capital: {tradingCapital}</p>
         <p>Receive a funded challenge account with a starting balance of {tradingCapital}</p>
         <ul>
           <li>Starting Balance: {tradingCapital}</li>

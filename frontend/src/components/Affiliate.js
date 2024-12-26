@@ -51,7 +51,7 @@ const Affiliate = () => {
             required
           />
         </div>
-        <div className="input-group">
+        <div className="checkbox-group">
           <input
             type="checkbox"
             id="termsAccepted"

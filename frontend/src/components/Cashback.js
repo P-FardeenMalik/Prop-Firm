@@ -95,16 +95,16 @@ const Cashback = () => {
           </div>
         );
         break;
-      case 'Hyperliquid':
+      case 'MEXC':
         content = (
           <div className="modal-content">
-            <h3>Hyperliquid</h3>
+            <h3>MEXC</h3>
             <p>Total possible trading fee savings</p>
             <p>Spot trading: 7%</p>
             <p>
               Get 4% off trading fees (plus get an additional 3% back when you sign up with The Ref)
             </p>
-            <a href="https://app.hyperliquid.xyz/join/THEREF" target="_blank" rel="noopener noreferrer">Sign up</a>
+            <a href="https://app.MEXC.xyz/join/THEREF" target="_blank" rel="noopener noreferrer">Sign up</a>
             <button onClick={() => setModalContent(null)}>Close</button>
           </div>
         );
@@ -126,7 +126,7 @@ const Cashback = () => {
           { name: 'OKX', cashback: '25%' },
           { name: 'HTX', cashback: '45%' },
           { name: 'Gate.io', cashback: '50%' },
-          { name: 'Hyperliquid', cashback: '7%' },
+          { name: 'MEXC', cashback: '7%' },
         ].map((exchange) => (
           <div className="exchange-item" key={exchange.name}>
             <h3>{exchange.name}</h3>
@@ -181,11 +181,11 @@ const Cashback = () => {
         />
       </div>
       <div className="input-group">
-        <label htmlFor="hyperliquidUserId">Hyperliquid.xyz</label>
+        <label htmlFor="MEXCUserId">MEXC.xyz</label>
         <input
           type="text"
-          id="hyperliquidUserId"
-          placeholder="Enter your Hyperliquid.xyz User ID"
+          id="MEXCUserId"
+          placeholder="Enter your MEXC.xyz User ID"
         />
       </div>
       <div className="input-group">
