@@ -75,13 +75,15 @@ const Dashboard = () => {
         </ul>
       </div>
       <div className="content">
-        <div className="user-info" onClick={handleProfileClick}>
-          <img
-            src={userProfile.profilePic ? URL.createObjectURL(userProfile.profilePic) : "/profile.png"}
-            alt="Profile"
-            className="profile-pic"
-          />
-          <span>{userProfile.firstName || 'My Account'}</span>
+        <div className="user-info">
+          <div className="profile-clickable" onClick={handleProfileClick}>
+            <img
+              src={userProfile.profilePic ? URL.createObjectURL(userProfile.profilePic) : "/profile.png"}
+              alt="Profile"
+              className="profile-pic"
+            />
+            <span>{userProfile.firstName || 'My Account'}</span>
+          </div>
         </div>
         <Routes>
           <Route path="/" element={<div>Welcome to your FutureXtrader dashboard!</div>} />

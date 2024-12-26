@@ -95,3 +95,14 @@
   margin-right: 10px;
   object-fit: cover; /* Ensure the image covers the entire area */
 }
+
+.profile-clickable {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.profile-clickable span {
+  font-size: 1rem;
+  color: #fffcfc;
+}
