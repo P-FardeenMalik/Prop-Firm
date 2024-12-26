@@ -68,6 +68,18 @@
   height: 100%;
 }
 
+.sidebar-menu .new-funded-account-btn {
+  background-color: #34495e; /* Standard background color */
+  color: white; /* Text color */
+  font-weight: normal; /* Normal text weight */
+  margin-top: 0; /* Reset margin */
+  border: none; /* Remove border */
+}
+
+.sidebar-menu .new-funded-account-btn:hover {
+  background-color: #1abc9c; /* Hover color */
+}
+
 .content {
   flex-grow: 1;
   padding: 20px;
@@ -104,5 +116,5 @@
 
 .profile-clickable span {
   font-size: 1rem;
-  color: #fffcfc;
+  color: white; /* Change text color to white */
 }

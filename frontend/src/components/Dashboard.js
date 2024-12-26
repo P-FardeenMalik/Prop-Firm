@@ -36,7 +36,7 @@ const Dashboard = () => {
         </div>
         <ul className="sidebar-menu">
           <li>
-            <Link to="/dashboard/new-funded-account" className="btn-link">New Funded Account</Link>
+            <Link to="/dashboard/new-funded-account" className="btn-link new-funded-account-btn">New Funded Account</Link>
           </li>
           <li>
             <Link to="/dashboard/funded-accounts" className="btn-link">Funded Accounts</Link>
