@@ -2,11 +2,15 @@ body {
   background-color: #000; /* Set background color to black */
   color: #fff; /* Set text color to white for better contrast */
   font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  margin: 0; /* Remove default margin */
 }
 
 .sign-up {
   max-width: 500px; /* Increased the width */
-  margin: 50px auto; /* Added margin to center vertically */
   padding: 30px; /* Increased padding */
   background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent background */
   border-radius: 10px;

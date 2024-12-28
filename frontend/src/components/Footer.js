@@ -1,8 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './styles/Footer.css'; // Import the CSS file for styling
 
 const Footer = () => {
+  const location = useLocation();
+  const hideFooterRoutes = ['/signin', '/signup'];
+
+  if (hideFooterRoutes.includes(location.pathname)) {
+    return null;
+  }
+
   return (
     <footer className="footer">
       <div className="footer-content">
@@ -18,7 +25,6 @@ const Footer = () => {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/about">About</Link></li>
             <li><Link to="/contact">Contact</Link></li>
-
           </ul>
         </div>
         <div className="footer-section social">

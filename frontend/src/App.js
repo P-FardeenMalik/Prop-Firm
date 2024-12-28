@@ -48,7 +48,7 @@ const HeaderWrapper = () => {
 
 const FooterWrapper = () => {
   const location = useLocation();
-  const noFooterRoutes = ['/dashboard'];
+  const noFooterRoutes = ['/dashboard', '/sign-in', '/sign-up'];
 
   // Check if the current path starts with any of the noFooterRoutes
   const shouldShowFooter = !noFooterRoutes.some(route => location.pathname.startsWith(route));
