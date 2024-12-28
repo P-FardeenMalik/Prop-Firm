@@ -39,7 +39,7 @@
   margin: 10px 0;
   padding: 10px;
   cursor: pointer;
-  background-color: #34495e;
+  background-color: #130f0f;
   border-radius: 4px;
   transition: background-color 0.3s ease;
 }
@@ -70,10 +70,9 @@
 }
 
 .sidebar-menu .new-funded-account-btn {
-  background-color: #34495e; /* Standard background color */
   color: white; /* Text color */
   font-weight: normal; /* Normal text weight */
-  margin-top: 0; /* Reset margin */
+  margin-top: 0; /* Reset margin */ 
   border: none; /* Remove border */
 }
 
