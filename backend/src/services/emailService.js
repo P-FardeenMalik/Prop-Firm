@@ -11,21 +11,21 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const sendEmail = async (name, email, message) => {
+const sendOtpEmail = async (email, otp) => {
   const mailOptions = {
-    from: email,
-    to: 'fardeenmalik138@gmail.com',
-    subject: 'New Contact Form Submission',
-    text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+    from: process.env.EMAIL_USER,
+    to: email,
+    subject: 'Your OTP Code',
+    text: `Your OTP code is ${otp}`,
   };
 
   try {
     await transporter.sendMail(mailOptions);
-    console.log('Email sent successfully');
+    console.log('OTP email sent successfully');
   } catch (error) {
-    console.error('Error sending email:', error);
+    console.error('Error sending OTP email:', error);
     throw error; // Ensure the error is thrown to be caught in the route handler
   }
 };
 
-module.exports = { sendEmail };
+module.exports = { sendOtpEmail };
