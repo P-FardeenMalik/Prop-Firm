@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const { sendOtpEmail } = require('./services/emailService'); // Import the email service
 require('dotenv').config(); // Load environment variables from .env file
 
 const app = express();
@@ -10,7 +11,7 @@ app.use(bodyParser.json());
 const users = {}; // In-memory store for user credentials
 const otpStore = {}; // In-memory store for OTPs
 
-app.post('/send-verification-email', (req, res) => {
+app.post('/send-verification-email', async (req, res) => {
   const { email } = req.body;
   if (users[email]) {
     console.log(`User already exists: ${email}`); // Log if user already exists
@@ -18,8 +19,15 @@ app.post('/send-verification-email', (req, res) => {
   }
   const otp = Math.floor(100000 + Math.random() * 900000).toString();
   otpStore[email] = otp;
-  console.log(`OTP for ${email}: ${otp}`); // Simulate sending OTP
-  res.status(200).json({ success: true });
+  console.log(`OTP for ${email}: ${otp}`); // Log the OTP
+
+  try {
+    await sendOtpEmail(email, otp); // Send the OTP email
+    res.status(200).json({ success: true });
+  } catch (error) {
+    console.error('Error sending OTP email:', error);
+    res.status(500).json({ success: false, message: 'Failed to send OTP' });
+  }
 });
 
 app.post('/verify-otp', (req, res) => {
