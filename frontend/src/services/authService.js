@@ -123,5 +123,4 @@ export const sendPasswordResetEmail = async (email) => {
   } catch (error) {
     console.error('Failed to send password reset email:', error);
     return { success: false };
-  }
-};
+  }};
