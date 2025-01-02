@@ -121,12 +121,12 @@ const Cashback = () => {
       <p>Use the referral links below to create an account on one or more exchanges.</p>
       <div className="exchange-list">
         {[
-          { name: 'Binance', cashback: '30.5%' },
-          { name: 'Bybit', cashback: '20%' },
-          { name: 'OKX', cashback: '25%' },
+          { name: 'Binance', cashback: '25.0%' },
+          { name: 'Bybit', cashback: '40.0%' },
+          { name: 'OKX', cashback: '20%' },
           { name: 'HTX', cashback: '45%' },
           { name: 'Gate.io', cashback: '50%' },
-          { name: 'MEXC', cashback: '7%' },
+          { name: 'MEXC', cashback: '40.0%' },
         ].map((exchange) => (
           <div className="exchange-item" key={exchange.name}>
             <h3>{exchange.name}</h3>
