@@ -7,7 +7,7 @@ const Promotions = () => {
       <h2>Promotions</h2>
       <div className="promotion">
         <h3>10% Discount</h3>
-        <p>Get a 10% lifetime discount for all FutureXTrader challenges.</p>
+        <p>Get a 10% lifetime discount for all FutureXFinance challenges.</p>
         <button className="claim-btn">Claim</button>
       </div>
       <div className="promotion">

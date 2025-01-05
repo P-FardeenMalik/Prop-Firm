@@ -35,7 +35,7 @@ const Header = () => {
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="logo">
         <Link to="/">
-          <h1>FutureXtrader</h1>
+          <h1>FutureXFinance</h1>
         </Link>
       </div>
       <nav className="nav-links">
