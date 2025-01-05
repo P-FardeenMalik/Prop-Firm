@@ -11,7 +11,7 @@ import SignUp from './pages/SignUp'; // Import SignUp component
 import Dashboard from './components/Dashboard'; // Corrected import path
 import PrivateRoute from './components/PrivateRoute'; // Import PrivateRoute component
 import ForgotPassword from './pages/ForgotPassword'; // Import ForgotPassword component
-import './App.css'; // Import the CSS file for styling
+import './App.css'; 
 
 const App = () => {
   return (
