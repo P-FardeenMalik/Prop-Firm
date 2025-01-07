@@ -31,7 +31,7 @@ const Footer = () => {
           <h3>Follow Us</h3>
           <ul>
             <li><a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-            <li><a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+            <li><a href="https://x.com/FutureXFinance_" target="_blank" rel="noopener noreferrer">Twitter</a></li>
             <li><a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
           </ul>
         </div>
