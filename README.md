@@ -1,6 +1,6 @@
 # Prop Firm
 
-This project is a comprehensive web application that integrates frontend, backend, database management, blockchain technology, API integration, security measures, hosting services, and compliance tools.
+This project is a comprehensive web application that integrates frontend, backend.
 
 ## Project Structure
 
@@ -11,27 +11,12 @@ This project is a comprehensive web application that integrates frontend, backen
 - **backend**: The server-side application built with Node.js and Express.
   - **src**: Contains controllers, models, routes, and services for handling business logic and database interactions.
 
-- **database**: Manages database migrations and seeders for data management.
-
-- **blockchain**: Contains smart contracts and scripts for blockchain interactions.
-
-- **api**: Integrates with external APIs, such as CoinAPI.
-
-- **security**: Implements security measures including SSL and two-factor authentication.
-
-- **hosting**: Configuration for deploying the application on various cloud platforms.
-
-- **compliance**: Tools for KYC and AML compliance.
 
 ## Technologies Used
 
 - **Frontend**: HTML5, CSS3, JavaScript (React, Vue, Angular)
 - **Backend**: Node.js, Python, Java (Express, Django, Spring Boot)
-- **Databases**: PostgreSQL, MySQL, MongoDB, Cassandra
-- **Blockchain**: Ethereum, Binance Smart Chain, Solana (Solidity, Rust)
-- **APIs**: CoinAPI
-- **Security**: SSL/TLS, 2FA, DDoS Protection
-- **Hosting**: AWS, GCP, Azure
+
 
 ## Getting Started
 
