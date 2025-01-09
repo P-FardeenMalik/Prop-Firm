@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { jwtDecode } from 'jwt-decode'; // Correctly import jwtDecode as a named export
+import jwtDecode from 'jwt-decode'; // Correctly import jwtDecode as a default export
 import './styles/SignUp.css'; // Import the CSS file for styling
 import { sendVerificationEmail, verifyOtp, createAccount, checkEmail } from '../services/authService'; // Import the mock backend service
 import { useAuth } from '../context/AuthContext'; // Import useAuth from AuthContext
@@ -17,19 +17,24 @@ const SignUp = () => {
   const { login } = useAuth();
 
   const handleGoogleSignIn = useCallback(async (response) => {
-    const userObject = jwtDecode(response.credential);
-    const googleEmail = userObject.email;
-    setEmail(googleEmail);
+    try {
+      const userObject = jwtDecode(response.credential);
+      const googleEmail = userObject.email;
+      setEmail(googleEmail);
 
-    // Directly create an account with Google email
-    const accountResponse = await createAccount(googleEmail, 'google-oauth');
-    console.log('Google sign-up response:', accountResponse); // Log the response
-    if (accountResponse.success) {
-      alert('Account created successfully');
-      login(); // Update the authentication state
-      navigate('/dashboard');
-    } else {
-      setErrorMessage(accountResponse.message || 'Failed to create account');
+      // Directly create an account with Google email
+      const accountResponse = await createAccount(googleEmail, 'google-oauth');
+      console.log('Google sign-up response:', accountResponse); // Log the response
+      if (accountResponse.success) {
+        alert('Account created successfully');
+        login(); // Update the authentication state
+        navigate('/dashboard');
+      } else {
+        setErrorMessage(accountResponse.message || 'Failed to create account');
+      }
+    } catch (error) {
+      console.error('Error during Google sign-in:', error);
+      setErrorMessage('An error occurred during Google sign-in');
     }
   }, [navigate, login]);
 
@@ -178,4 +183,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SignUp;F

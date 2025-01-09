@@ -32,7 +32,7 @@ const Dashboard = () => {
     <div className="dashboard">
       <div className="sidebar">
         <div className="sidebar-header">
-          <Link to="/" className="company-name">FutureXFinance</Link>
+          <Link to="/" className="company-name">Crypto Trader</Link>
         </div>
         <ul className="sidebar-menu">
           <li>
@@ -86,7 +86,7 @@ const Dashboard = () => {
           </div>
         </div>
         <Routes>
-          <Route path="/" element={<div>Welcome to your FutureXFinance dashboard!</div>} />
+          <Route path="/" element={<div>Welcome to your Crypto Trader dashboard!</div>} />
           <Route path="profile" element={<MyProfile />} />
           <Route path="cashback" element={<Cashback />} />
           <Route path="affiliate" element={<Affiliate />} />

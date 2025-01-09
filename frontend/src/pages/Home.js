@@ -35,10 +35,10 @@ const Home = () => {
     <div className="home">
       <section className="hero">
         <div className="hero-content">
-          <h1>Crypto Traders Wanted FutureXFinance</h1>
+          <h1>Crypto Traders Wanted Crypto Trader</h1>
           <h2>We Provide Two services</h2>
           <p>Get refund upto 50% of your trading fees from Binance, Bybit, OKX, Mexc, BingX, Bitget and Lbank Exchanges.</p>
-          <p>Trade crypto with an initial capital of up to $100,000 and keep up to 90% of your profits while we cover the losses. Connect your own Binance, ByBit, Mexc account to FutureXFinance, the crypto prop trading firm for serious traders.</p>
+          <p>Trade crypto with an initial capital of up to $100,000 and keep up to 90% of your profits while we cover the losses. Connect your own Binance, ByBit, Mexc account to Crypto Trader, the crypto prop trading firm for serious traders.</p>
           <button className="cta-btn" onClick={handleSignUpClick}>Get Started</button>
   
           {trustpilotData && (
@@ -81,7 +81,7 @@ const Home = () => {
         <p>To access a funded trading account, complete a trading challenge. The fee for this challenge is fully refundable with the first profit split. Read more about how it works here.</p>
         <div className="step-box">
           <h4>1. Apply for our program</h4>
-          <p>Select your preferred account size and easily connect your exchange account to FutureXFinance via API.</p>
+          <p>Select your preferred account size and easily connect your exchange account to Crypto Trader via API.</p>
         </div>
         <div className="step-box">
           <h4>2. Complete the Crypto Trading Challenge</h4>
@@ -97,7 +97,7 @@ const Home = () => {
         </div>
         <div className="step-box">
           <h4>Your First Payout</h4>
-          <p>FutureXFinance offers the fastest payouts in the industry. You can request a payout after 1 calendar day from the first trade executed on the funded account. Payouts are processed within 12-24 hours and paid in USDT.</p>
+          <p>Crypto Trader offers the fastest payouts in the industry. You can request a payout after 1 calendar day from the first trade executed on the funded account. Payouts are processed within 12-24 hours and paid in USDT.</p>
         </div>
       </section>
       <section id="cashback" className="how-it-works">
@@ -117,7 +117,7 @@ const Home = () => {
         </div>
       </section>
       <section className="cta">
-        <h2>Join FutureXFinance Today</h2>
+        <h2>Join Crypto Trader Today</h2>
         <button className="sign-up-btn" onClick={handleSignUpClick}>Sign Up Now</button>
       </section>
     </div>
