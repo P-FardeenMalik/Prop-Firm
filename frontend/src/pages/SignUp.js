@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import jwtDecode from 'jwt-decode'; // Correctly import jwtDecode as a default export
+import {jwtDecode} from 'jwt-decode'; // Correctly import jwtDecode as a default export
 import './styles/SignUp.css'; // Import the CSS file for styling
 import { sendVerificationEmail, verifyOtp, createAccount, checkEmail } from '../services/authService'; // Import the mock backend service
 import { useAuth } from '../context/AuthContext'; // Import useAuth from AuthContext
@@ -183,4 +183,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;F
+export default SignUp;
